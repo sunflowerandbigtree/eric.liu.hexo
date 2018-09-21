@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>驴小疯Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-09-21T07:36:35.349Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Eric Liu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitLab常用命令</title>
+    <link href="http://yoursite.com/2018/09/21/GitLab%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2018/09/21/GitLab常用命令/</id>
+    <published>2018-09-21T07:35:28.000Z</published>
+    <updated>2018-09-21T07:36:35.349Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo gitlab-ctl start    # 启动所有 gitlab 组件；</span><br><span class="line">sudo gitlab-ctl stop        # 停止所有 gitlab 组件；</span><br><span class="line">sudo gitlab-ctl restart        # 重启所有 gitlab 组件；</span><br><span class="line">sudo gitlab-ctl status        # 查看服务状态；</span><br><span class="line">sudo gitlab-ctl reconfigure        # 启动服务；</span><br><span class="line">sudo vim /etc/gitlab/gitlab.rb        # 修改默认的配置文件；</span><br><span class="line">gitlab-rake gitlab:check SANITIZE=true --trace    # 检查gitlab；</span><br><span class="line">sudo gitlab-ctl tail        # 查看日志；</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;常用命令&quot;&gt;&lt;a href=&quot;#常用命令&quot; class=&quot;headerlink&quot; title=&quot;常用命令&quot;&gt;&lt;/a&gt;常用命令&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>GitLab配置邮箱</title>
+    <link href="http://yoursite.com/2018/09/21/GitLab%E9%85%8D%E7%BD%AE%E9%82%AE%E7%AE%B1/"/>
+    <id>http://yoursite.com/2018/09/21/GitLab配置邮箱/</id>
+    <published>2018-09-21T07:35:16.000Z</published>
+    <updated>2018-09-21T07:36:39.120Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/gitlab/gitlab.rb</span><br></pre></td></tr></table></figure><h2 id="配置如下"><a href="#配置如下" class="headerlink" title="配置如下"></a>配置如下</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">gitlab_rails[&apos;smtp_enable&apos;] = true</span><br><span class="line">gitlab_rails[&apos;smtp_address&apos;] = &quot;smtp.163.com&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_port&apos;] = 25</span><br><span class="line">gitlab_rails[&apos;smtp_user_name&apos;] = &quot;xxx@163.com&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_password&apos;] = &quot;xxxpassword&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_domain&apos;] = &quot;163.com&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_authentication&apos;] = :login</span><br><span class="line">gitlab_rails[&apos;smtp_enable_starttls_auto&apos;] = true</span><br><span class="line">gitlab_rails[&apos;gitlab_email_from&apos;] = &quot;xxxx@163.com&quot;</span><br><span class="line">user[&quot;git_user_email&quot;] = &quot;xxxx@163.com&quot;</span><br></pre></td></tr></table></figure><h2 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitlab-ctl reconfigure</span><br><span class="line">gitlab-ctl restart</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;修改配置文件&quot;&gt;&lt;a href=&quot;#修改配置文件&quot; class=&quot;headerlink&quot; title=&quot;修改配置文件&quot;&gt;&lt;/a&gt;修改配置文件&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>GitLab安装和配置</title>
+    <link href="http://yoursite.com/2018/09/21/GitLab%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2018/09/21/GitLab安装和配置/</id>
+    <published>2018-09-21T07:33:18.000Z</published>
+    <updated>2018-09-21T07:36:37.087Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="GitlabInstall"><a href="#GitlabInstall" class="headerlink" title="GitlabInstall"></a>GitlabInstall</h1><h2 id="open-HTTP-and-SSH-access-in-the-system-firewall"><a href="#open-HTTP-and-SSH-access-in-the-system-firewall" class="headerlink" title="open HTTP and SSH access in the system firewall"></a>open HTTP and SSH access in the system firewall</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y curl policycoreutils-python openssh-server</span><br><span class="line">sudo systemctl enable sshd</span><br><span class="line">sudo systemctl start sshd</span><br><span class="line">sudo firewall-cmd --permanent --add-service=http</span><br><span class="line">sudo systemctl reload firewalld</span><br></pre></td></tr></table></figure><h2 id="Install-Postfix-to-send-notification-emails"><a href="#Install-Postfix-to-send-notification-emails" class="headerlink" title="Install Postfix to send notification emails"></a>Install Postfix to send notification emails</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install postfix</span><br><span class="line">sudo systemctl enable postfix</span><br><span class="line">sudo systemctl start postfix</span><br></pre></td></tr></table></figure><h2 id="Add-the-GitLab-package-repository-and-install-the-package"><a href="#Add-the-GitLab-package-repository-and-install-the-package" class="headerlink" title="Add the GitLab package repository and install the package"></a>Add the GitLab package repository and install the package</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash</span><br></pre></td></tr></table></figure><h2 id="Install-the-GitLab-package"><a href="#Install-the-GitLab-package" class="headerlink" title="Install the GitLab package"></a>Install the GitLab package</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo EXTERNAL_URL=&quot;http://gitlab.example.com&quot; yum install -y gitlab-ee</span><br></pre></td></tr></table></figure><h2 id="Browse-to-the-hostname-and-login"><a href="#Browse-to-the-hostname-and-login" class="headerlink" title="Browse to the hostname and login"></a>Browse to the hostname and login</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url:http://ip.address</span><br><span class="line">root login</span><br></pre></td></tr></table></figure><h2 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h2><ul><li><p>查看Gitlab版本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /opt/gitlab/embedded/service/gitlab-rails/VERSION</span><br></pre></td></tr></table></figure></li><li><p>下载汉化包</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url:https://gitlab.com/xhang/gitlab/tree/11-2-stable-zh</span><br></pre></td></tr></table></figure></li><li><p>解压，拷贝</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -rf gitlab-11-2-stable-zh/* /opt/gitlab/embedded/service/gitlab-rails/</span><br></pre></td></tr></table></figure></li></ul><h2 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitlab-ctl reconfigure</span><br><span class="line">gitlab-ctl restart</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;GitlabInstall&quot;&gt;&lt;a href=&quot;#GitlabInstall&quot; class=&quot;headerlink&quot; title=&quot;GitlabInstall&quot;&gt;&lt;/a&gt;GitlabInstall&lt;/h1&gt;&lt;h2 id=&quot;open-HTTP-and-SSH-acc
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>网络工程师软件清单</title>
+    <link href="http://yoursite.com/2018/09/15/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E4%BB%B6%E6%B8%85%E5%8D%95/"/>
+    <id>http://yoursite.com/2018/09/15/网络工程师软件清单/</id>
+    <published>2018-09-15T03:28:33.000Z</published>
+    <updated>2018-09-21T07:24:06.318Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h1><ul><li><a href="https://www.vandyke.com/download/securecrt/download.html#" target="_blank" rel="noopener">SecureCRT</a></li><li><a href="https://www.netsarang.com/download/free_license.html" target="_blank" rel="noopener">Xshell</a></li><li><a href="https://winscp.net/eng/download.php" target="_blank" rel="noopener">WinSCP</a></li><li><a href="https://www.google.com/chrome/" target="_blank" rel="noopener">Chrome</a></li><li><a href="https://www.wireshark.org/download.html" target="_blank" rel="noopener">Wireshark</a></li><li><a href="https://www.sublimetext.com/download" target="_blank" rel="noopener">Sublime</a></li><li><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a></li><li><a href="https://golang.org/dl/" target="_blank" rel="noopener">Go</a></li><li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Python</a></li><li><a href="https://www.docker.com/get-started" target="_blank" rel="noopener">Docker</a></li><li><a href="https://www.metageek.com/products/inssider/free/" target="_blank" rel="noopener">inSSIDer</a></li><li><a href="http://www.wirelessmon.com/" target="_blank" rel="noopener">WirelessMon</a></li><li><a href="https://www.navicat.com/en/company/press/107-pres" target="_blank" rel="noopener">Navicat</a></li><li><a href="https://www.cisco.com/c/en/us/support/security/anyconnect-secure-mobility-client/tsd-products-support-series-home.html" target="_blank" rel="noopener">Cisco AnyConnect</a></li><li><a href="https://www.ekahau.com/products/heatmapper/overview/" target="_blank" rel="noopener">Ekahau HeatMapper</a></li></ul><h1 id="Web工具类"><a href="#Web工具类" class="headerlink" title="Web工具类"></a>Web工具类</h1><ul><li><a href="www.google.com">Google</a></li><li><a href="http://www.speedtest.net/" target="_blank" rel="noopener">Speedtest</a></li><li><a href="https://ping.pe/" target="_blank" rel="noopener">ping.pe</a></li><li><a href="https://whatsmyip.com/" target="_blank" rel="noopener">whatsmyip</a></li><li><a href="https://www.whatsmydns.net/" target="_blank" rel="noopener">whatsmydns</a></li></ul><h1 id="troubleshooting"><a href="#troubleshooting" class="headerlink" title="troubleshooting"></a>troubleshooting</h1><ul><li><a href="https://en.wikipedia.org/wiki/Ping_(networking_utility" target="_blank" rel="noopener">ping</a></li><li><a href="https://en.wikipedia.org/wiki/Traceroute" target="_blank" rel="noopener">traceroute</a></li><li><a href="https://en.wikipedia.org/wiki/PathPing" target="_blank" rel="noopener">pathping</a></li><li><a href="https://en.wikipedia.org/wiki/Telnet" target="_blank" rel="noopener">telnet</a></li><li><a href="https://en.wikipedia.org/wiki/Nslookup" target="_blank" rel="noopener">nslookup</a></li><li><a href="https://en.wikipedia.org/wiki/Dig_(command" target="_blank" rel="noopener">dig</a></li><li><a href="https://github.com/oetiker/SmokePing" target="_blank" rel="noopener">smokeping</a></li><li><a href="https://nmap.org/" target="_blank" rel="noopener">nmap</a></li><li><a href="https://en.wikipedia.org/wiki/MTR_(software" target="_blank" rel="noopener">MTR</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;工具类&quot;&gt;&lt;a href=&quot;#工具类&quot; class=&quot;headerlink&quot; title=&quot;工具类&quot;&gt;&lt;/a&gt;工具类&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.vandyke.com/download/securecrt/download
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Git常用命令</title>
+    <link href="http://yoursite.com/2018/09/14/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2018/09/14/Git常用命令/</id>
+    <published>2018-09-14T15:17:21.000Z</published>
+    <updated>2018-09-21T07:24:06.316Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>Git安装</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git</span><br><span class="line">The program <span class="string">'git'</span> is currently not installed. You can install it by typing:</span><br><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure></li><li><p>Git设置</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure></li><li><p>初始化</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line"></span><br><span class="line">$ git add &lt;file&gt;</span><br><span class="line"></span><br><span class="line">$ git commit -m &lt;message&gt;</span><br></pre></td></tr></table></figure></li><li><p>查看Git状态</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line"></span><br><span class="line">$ git diff</span><br></pre></td></tr></table></figure></li><li><p>查看历史版本</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br><span class="line"></span><br><span class="line">$ git reflog</span><br></pre></td></tr></table></figure></li><li><p>撤销修改</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- file</span><br><span class="line"></span><br><span class="line">$ git reset HEAD &lt;file&gt;</span><br></pre></td></tr></table></figure></li><li><p>删除文件</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git rm</span><br></pre></td></tr></table></figure></li><li><p>添加远程仓库</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@server-name:path/repo-name.git</span><br><span class="line"></span><br><span class="line">$ git push -u origin master</span><br><span class="line"></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></li><li><p>从远程仓库克隆</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone</span><br></pre></td></tr></table></figure></li><li><p>分支管理</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">查看分支：git branch</span><br><span class="line"></span><br><span class="line">创建分支：git branch &lt;name&gt;</span><br><span class="line"></span><br><span class="line">切换分支：git checkout &lt;name&gt;</span><br><span class="line"></span><br><span class="line">创建+切换分支：git checkout -b &lt;name&gt;</span><br><span class="line"></span><br><span class="line">合并某分支到当前分支：git merge &lt;name&gt;</span><br><span class="line"></span><br><span class="line">删除分支：git branch -d &lt;name&gt;</span><br></pre></td></tr></table></figure></li><li><p>从远程仓库拉取分支</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Git安装&lt;/p&gt;
+&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/sp
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Git</title>
+    <link href="http://yoursite.com/2018/09/14/Git/"/>
+    <id>http://yoursite.com/2018/09/14/Git/</id>
+    <published>2018-09-14T15:16:50.000Z</published>
+    <updated>2018-09-21T07:24:06.316Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Hello-Git"><a href="#Hello-Git" class="headerlink" title="Hello Git"></a>Hello Git</h1><p><img src="/images/Git_logo.png" alt="Hello Git"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Hello-Git&quot;&gt;&lt;a href=&quot;#Hello-Git&quot; class=&quot;headerlink&quot; title=&quot;Hello Git&quot;&gt;&lt;/a&gt;Hello Git&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/images/Git_logo.png&quot; alt=&quot;Hello
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>NetDevOps</title>
+    <link href="http://yoursite.com/2018/09/14/NetDevOps/"/>
+    <id>http://yoursite.com/2018/09/14/NetDevOps/</id>
+    <published>2018-09-14T14:13:03.000Z</published>
+    <updated>2018-09-21T07:24:06.317Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Hello-NetDevOps"><a href="#Hello-NetDevOps" class="headerlink" title="Hello NetDevOps"></a>Hello NetDevOps</h1><p><img src="/images/NetDevOps_logo.png" alt="Hello NetDevOps"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Hello-NetDevOps&quot;&gt;&lt;a href=&quot;#Hello-NetDevOps&quot; class=&quot;headerlink&quot; title=&quot;Hello NetDevOps&quot;&gt;&lt;/a&gt;Hello NetDevOps&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/images/
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Golang</title>
+    <link href="http://yoursite.com/2018/09/14/Golang/"/>
+    <id>http://yoursite.com/2018/09/14/Golang/</id>
+    <published>2018-09-14T14:12:34.000Z</published>
+    <updated>2018-09-21T07:24:06.317Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Hello-Golang"><a href="#Hello-Golang" class="headerlink" title="Hello Golang"></a>Hello Golang</h1><p><img src="/images/Golang_logo.png" alt="Hello Golang"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Hello-Golang&quot;&gt;&lt;a href=&quot;#Hello-Golang&quot; class=&quot;headerlink&quot; title=&quot;Hello Golang&quot;&gt;&lt;/a&gt;Hello Golang&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/images/Golang_logo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python</title>
+    <link href="http://yoursite.com/2018/09/14/Python/"/>
+    <id>http://yoursite.com/2018/09/14/Python/</id>
+    <published>2018-09-14T14:12:22.000Z</published>
+    <updated>2018-09-21T07:24:06.317Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Hello-Python"><a href="#Hello-Python" class="headerlink" title="Hello Python"></a>Hello Python</h1><p><img src="/images/Python_logo.png" alt="Hello Python"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Hello-Python&quot;&gt;&lt;a href=&quot;#Hello-Python&quot; class=&quot;headerlink&quot; title=&quot;Hello Python&quot;&gt;&lt;/a&gt;Hello Python&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/images/Python_logo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Cisco</title>
+    <link href="http://yoursite.com/2018/09/14/Cisco/"/>
+    <id>http://yoursite.com/2018/09/14/Cisco/</id>
+    <published>2018-09-14T13:58:02.000Z</published>
+    <updated>2018-09-21T07:24:06.315Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Hello-Cisco"><a href="#Hello-Cisco" class="headerlink" title="Hello Cisco"></a>Hello Cisco</h1><p><img src="/images/Cisco_logo.png" alt="Hello,Cisco"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Hello-Cisco&quot;&gt;&lt;a href=&quot;#Hello-Cisco&quot; class=&quot;headerlink&quot; title=&quot;Hello Cisco&quot;&gt;&lt;/a&gt;Hello Cisco&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/images/Cisco_logo.png&quot; 
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2018/03/18/hello-world/"/>
+    <id>http://yoursite.com/2018/03/18/hello-world/</id>
+    <published>2018-03-18T15:16:50.000Z</published>
+    <updated>2018-09-21T07:24:06.318Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
